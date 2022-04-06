@@ -1,12 +1,14 @@
 global using System;
 using UI;
 using System.Collections.Generic;
-namespace UI;
+using System.Diagnostics;
 
+namespace UI;
 
 public class StoreLogin
 {
-
+    string user{get; set;}
+    string Pass{get; set;}
     // method below//
     public void Mainlogin()
     {
@@ -30,4 +32,5 @@ public class StoreLogin
             string? Pass = Console.ReadLine();
         } 
     }
+
 }

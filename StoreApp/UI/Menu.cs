@@ -122,8 +122,6 @@ public class StoreMenu
                 quantity = quantityInput
             }
         ); 
-        // {productName = ""; quantity.Int32.Parse() =""; price.Int32.Parse() = ""; dateCreated = "";}
-    
     }
 
 
