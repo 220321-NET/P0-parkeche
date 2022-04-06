@@ -1,0 +1,1 @@
+Server=tcp:parkeserver.database.windows.net,1433;Initial Catalog=Remote_Parke_DB;Persist Security Info=False;User ID=AdminParke;Password=Crazyme01;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;

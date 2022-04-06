@@ -67,7 +67,7 @@ public class StoreMenu
                 break;
 
                 case "3":
-                
+                    viewHistory();
                 break;
 
                 case "x":
@@ -84,6 +84,13 @@ public class StoreMenu
         }   while (!exit);
     } 
 
+    private void viewHistory()
+    {
+        foreach(Product p in cart)
+        {
+            Console.WriteLine($"{p.productName}: quantity: {p.quantity}, price: {p.price}");
+        }  
+    }
     private void viewCart()
     {
         foreach(Product p in cart)
