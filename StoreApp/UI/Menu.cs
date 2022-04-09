@@ -1,5 +1,5 @@
 global using System;
-
+using Microsoft.Data.SqlClient;
 namespace UI;
 
 public class StoreMenu
@@ -83,7 +83,6 @@ public class StoreMenu
             }
         }   while (!exit);
     } 
-
     private void viewHistory()
     {
         foreach(Product p in cart)
@@ -123,9 +122,7 @@ public class StoreMenu
             }
         ); 
     }
-
-
-}
     
+}
 
 
