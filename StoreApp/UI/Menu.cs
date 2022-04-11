@@ -122,33 +122,22 @@ public class StoreMenu
             }
         ); 
     }
-    public int CreateCart (Cart viewCart)
-    {
-    string ConnectionString = File.ReadAllText("./ConnectionString.txt");  
-    using SqlConnection connection = new SqlConnection(ConnectionString);
-    connection.Open();
+    // public void CreateStockInventory (StoreMenu Createstock)
+    // {
+    // string ConnectionString = File.ReadAllText("./ConnectionString.txt");  
+    // using SqlConnection connection = new SqlConnection(ConnectionString);
+    // connection.Open();
 
-    SqlCommand cmd = new SqlCommand("SELECT * FROM Menu", connection);
-    cmd = new SqlCommand("UPDATE Stock SET Product = @IUpdate Quantity = @product", connection);
+    // SqlCommand cmd = new SqlCommand("INSERT INTO MENU SET ID Iventory OrderHistory cart OrderHistory = @OrderHistory ID = @Id Inevtory = @Inventory cart = @cart" , connection);
 
-    cmd.Parameters.AddWithValue("@IUpdate", viewCart.inventory);
-    cmd.Parameters.AddWithValue("@Product", viewCart.quantity);
+    // cmd.Parameters.AddWithValue("@OrderHistory", Createstock.viewHistory);
+    // cmd.Parameters.AddWithValue("@Inventory",Createstock.stock);
+    // cmd.Parameters.AddWithValue("@Id", Createstock.buyProduct);
+    // cmd.Parameters.AddWithValue("@cart", Createstock.viewCart);
 
-    cmd.ExecuteScalar();
-
-    cmd = new SqlCommand("SELECT * FROM Menu WHERE Stock = " + $"{viewCart.price}", connection);
-    SqlDataReader dataReader = cmd.ExecuteReader();
-
-    
-//         if (dataReader.Read())
-//         {
-//             CreateStockInventory.price = dataReader.GetInt32(2);
-//         }
-//         dataReader.Close();
-//         connection.Close();
-
-    return CreateCart();
-    }
+    // cmd.ExecuteScalar();
+    // connection.Close();
+    // }
 }
 
 

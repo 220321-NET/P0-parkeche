@@ -2,11 +2,15 @@ global using System;
 using UI;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Microsoft.Data.SqlClient;
 
 namespace UI;
 
+
 public class StoreLogin
 {
+    public string User { get; private set; }
+    public string Pass { get; private set; }
 
     // method below//
     public void Mainlogin()
@@ -33,5 +37,17 @@ public class StoreLogin
             customer newCustomer = new customer(User, Pass);
         } 
     }
+    // public void createCustomer(customer customerToCreate)
+    // {
+    //     string ConnectionString = File.ReadAllText("./ConnectionString.txt");      
+    //     using SqlConnection connection = new SqlConnection(ConnectionString); 
+    //     connection.Open();
 
+    //     using SqlCommand cmd = new SqlCommand("INSERT INTO StoreLogin(UserName, PassWord) VALUES (@UserName, @PassWord)", connection);
+    //     cmd.Parameters.AddWithValue("@UserName", customerToCreate.User);
+    //     cmd.Parameters.AddWithValue("@PassWord", customerToCreate.Pass);
+    //     customer newCustomer = new customer(User, Pass);
+    //     cmd.ExecuteScalar();
+    //     connection.Close();
+    // }
 }

@@ -1,39 +1,33 @@
+using System.Diagnostics;
 using Microsoft.Data.SqlClient;
 namespace UI;
 
-internal class Cart
+internal class Cart : Program
 {
     public int quantity;
     public string? product {get; set;}
     public int price {get; set;}
 
     public int customerID {get; set;}
+    
+    public int dateCreated{get; set;}
 
-public int CreateStock(Cart CreateStock)
-{
+    public void CreateViewCart(Cart CreateStock)
+    {
     string ConnectionString = File.ReadAllText("./ConnectionString.txt");  
     using SqlConnection connection = new SqlConnection(ConnectionString);
     connection.Open();
 
-//     SqlCommand cmd = new SqlCommand("SELECT * FROM Menu", connection);
-//     cmd = new SqlCommand("UPDATE Inventory SET QuantityInventory = @IUpdate WHERE ProductName = @product", connection);
+    SqlCommand cmd = new SqlCommand("INSERT INTO ProductName ID Price DateCeated Quantity ProducName = @productName  Quantity = @quantity ID = @Id Price = @Price DateCreated = @DateCreated", connection);
 
-//     cmd.Parameters.AddWithValue("@IUpdate", CreateStockInventory.quantity);
-//     cmd.Parameters.AddWithValue("@name", CreateStockInventory.product);
+    cmd.Parameters.AddWithValue("@Product", CreateStock.product);
+    cmd.Parameters.AddWithValue("@Quantity", CreateStock.quantity);
+    cmd.Parameters.AddWithValue("@Price", CreateStock.price);
+    cmd.Parameters.AddWithValue("@ID", CreateStock.customerID);
+    cmd.Parameters.AddWithValue("@DateCreated", CreateStock.dateCreated);
 
-//     cmd.ExecuteScalar();
-
-//     cmd = new SqlCommand("SELECT * FROM Menu WHERE Product = " + $"{CreateStockInventory.price}", connection);
-//     SqlDataReader dataReader = cmd.ExecuteReader();
-
-    
-//         if (dataReader.Read())
-//         {
-//             CreateStockInventory.price = dataReader.GetInt32(2);
-//         }
-//         dataReader.Close();
-//         connection.Close();
-
-//         return CreateStockInventory.price;
-// }
+    cmd.ExecuteScalar();
+    connection.Close();
+    }
 }
+
