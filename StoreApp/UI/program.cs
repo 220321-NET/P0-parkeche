@@ -12,13 +12,7 @@ stMenu.MainMenu();
 string ConnectionString = File.ReadAllText("./ConnectionString.txt");
 using SqlConnection connection = new SqlConnection(ConnectionString);
 
-//connection.Open();
+connection.Open();
 
-//SqlCommand cmd = new SqlCommand("SELECT*FROM StoreLogin", connection);
-//SqlDataReader reader = cmd.ExecuteReader();
-//while (reader.Read())
-// {
-// //    Console.WriteLine(reader.GetInt32(0));
-//     Console.WriteLine(reader.GetString(1));
-//     Console.WriteLine(reader.GetString(2));
-// }
+SqlCommand cmd = new SqlCommand("SELECT*FROM StoreLogin WHERE ID", connection);
+SqlDataReader reader = cmd.ExecuteReader();
